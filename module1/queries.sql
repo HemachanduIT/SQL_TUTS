@@ -51,3 +51,19 @@ select sum(salary) as total_salary, avg(salary) as avg_salary from emp;
 
 --18.Find the details of employees whose Job is in Manager or Clerk.
 select * from emp where job='MANAGER' OR job='CLERK';
+
+--.19 Find the Names and salaries of the employees who are working in the location 'Chicago'.
+select ename,salary from emp where deptno=(select deptno from dept where loc='CHICAGO');
+select ename,salary from emp  join dept on emp.deptno=dept.deptno where loc='CHICAGO';
+
+--.20 Display Maximum sum of the salary and Minimum Average salary all the jobs.
+select max(total_sal) as max_total_sal,min(avg_sal) as min_avg_salary from(select job,sum(salary) as total_sal,avg(salary) as avg_sal from emp group by job)as jobsalaries;
+
+--21 Find out the Employee details who is getting the Minimum Salary.
+select * from emp where salary=(select min(salary) from emp);
+
+--22 Count the no. of employees in the accounting department.
+select count(*) from dept join emp on  dept.deptno=emp.deptno where dname='ACCOUNTING';
+select count(*) from emp where deptno=(select deptno from dept where dname='ACCOUNTING');
+
+
