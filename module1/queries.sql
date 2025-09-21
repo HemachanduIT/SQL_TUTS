@@ -66,4 +66,25 @@ select * from emp where salary=(select min(salary) from emp);
 select count(*) from dept join emp on  dept.deptno=emp.deptno where dname='ACCOUNTING';
 select count(*) from emp where deptno=(select deptno from dept where dname='ACCOUNTING');
 
+--23.Find out the working location of the employee 'Smith'
+select loc from dept join emp on dept.deptno=emp.deptno where ename='SMITH';
+select loc from dept where deptno=(select deptno from emp where ename='SMITH');
+
+--24.For each Department, List the no. of employees in the company.
+select deptno,count(*) as no_of_employers from emp group by deptno;
+
+--25.For each Department, find the Minimum salaried employee details.
+select * from emp as e1 where salary=(select min(salary) from emp as e2 where e1.deptno=e2.deptno); 
+
+--26.Find the details of employees who doesn’t have any salary.
+SELECT * FROM EMP WHERE SALARY IS NULL;
+
+--27.Count the distinct salaries of the employees.
+SELECT COUNT(distinct SALARY) AS DISTINCT_SALARIES FROM EMP;
+
+--28.Find out the Department name of the employee: 'Scott'.
+select dname from dept join emp on dept.deptno=emp.deptno where ename='SMITH';
+SELECT DNAME FROM DEPT WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
+
+
 
