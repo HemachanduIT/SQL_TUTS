@@ -86,5 +86,12 @@ SELECT COUNT(distinct SALARY) AS DISTINCT_SALARIES FROM EMP;
 select dname from dept join emp on dept.deptno=emp.deptno where ename='SMITH';
 SELECT DNAME FROM DEPT WHERE DEPTNO=(SELECT DEPTNO FROM EMP WHERE ENAME='SMITH');
 
+--29.For each Job, List the no. of employees in the company.
+select job,count(*) from emp group by job;
 
-
+--30.Display Designation wise Average Salary whose Average Salary is equal to Minimum Average Salary of each designation.
+select job ,avg(salary) as avg_salary 
+from emp group by job 
+having avg(salary)=(select min(avg_salary) 
+from(select job,avg(salary) as avg_salary from emp group by job) as min_avg_salary 
+where emp.job=min_avg_salary.job);
