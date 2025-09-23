@@ -1,0 +1,108 @@
+1. SQL Data Definition Language (DDL)
+● CREATE: Create a new database object (e.g., table).
+● ALTER: Modify an existing database object.
+● DROP: Remove an existing database object.
+● TRUNCATE: Remove all records from a table (but keep the structure).
+DDL is used to define and manage database structures like tables and schemas.
+
+
+2. SQL Data Manipulation Language (DML)
+● INSERT: Insert new data into a table.
+● UPDATE: Modify existing data in a table.
+● DELETE: Remove data from a table.
+DML is used to manipulate data within database tables.
+
+
+3. SQL Data Types
+● Numeric Data Types: INT, FLOAT, DECIMAL, etc.
+● String Data Types: VARCHAR, CHAR, TEXT, etc.
+● Date/Time Data Types: DATE, DATETIME, TIMESTAMP, etc.
+● Boolean Data Type: BOOLEAN.
+Data types define the nature of data that can be stored in a column (numbers, text, dates, etc.).
+
+
+4. SQL Querying Data
+● SELECT: Retrieve data from the database.
+● DISTINCT: Remove duplicate rows in a result set.
+● WHERE: Filter records based on a condition.
+● LIKE: Search for a specified pattern.
+● ORDER BY: Sort the result set.
+● LIMIT: Limit the number of returned rows (MySQL/PostgreSQL).
+● TOP: Limit the number of returned rows (SQL Server).
+● AND, OR, NOT: Logical operators for filtering data.
+● IN: Filter records based on a list of values.
+● BETWEEN: Filter records based on a range.
+These clauses and operators are used to filter and organize query results.
+
+
+
+5. Aggregate Functions
+● SUM(): Calculate the total sum of a numeric column.
+● MAX(): Find the maximum value.
+● MIN(): Find the minimum value.
+● COUNT(): Count the number of rows.
+● AVG(): Calculate the average value.
+Aggregate functions are used to calculate summary statistics on sets of data.
+
+
+
+6. Grouping and Filtering Data
+● GROUP BY: Group rows that have the same values into summary rows.
+● HAVING: Filter groups based on a condition.
+These clauses are used to group data and filter aggregated results.
+
+
+7. SQL Joins
+● INNER JOIN: Return rows with matching values in both tables.
+● LEFT JOIN (LEFT OUTER JOIN): Return all rows from the left table, and the matched rows from the right table.
+● RIGHT JOIN (RIGHT OUTER JOIN): Return all rows from the right table, and the matched rows from the left table.
+● FULL OUTER JOIN: Return all rows when there is a match in either left or right table.
+● SELF JOIN: Join a table to itself.
+Joins are used to combine rows from two or more tables based on related columns.
+
+
+
+
+8. Subqueries and CTEs (Common Table Expressions)
+● CTE: Temporary result set defined within the execution scope of a SELECT, INSERT, UPDATE, or DELETE statement.
+● SUBQUERIES: A query nested inside another query.
+Subqueries and CTEs are used to simplify complex queries and improve readability.
+
+
+
+9. Set Operators
+● UNION: Combine the result sets of two or more SELECT statements (without duplicates).
+● UNION ALL: Combine the result sets of two or more SELECT statements (with duplicates).
+Set operators are used to combine the results of multiple queries.
+
+
+
+10. Existential and Conditional Queries
+● EXISTS: Test for the existence of any records in a subquery.
+● CASE WHEN: Perform conditional logic in a SQL statement.
+Existential queries check for the existence of data, while CASE WHEN is used for conditional logic within queries.
+
+
+
+11. Window Functions
+● ROW_NUMBER() OVER: Assigns a unique sequential integer to rows within a partition of a result set.
+● RANK() OVER: Provides a ranking of rows within a partition, allowing for ties.
+● DENSE_RANK() OVER: Similar to RANK(), but without gaps in ranking.
+● LEAD() OVER: Access data from the following row in a partition.
+● LAG() OVER: Access data from the preceding row in a partition.
+● NTILE() OVER: Distribute rows into a specified number of equal-sized groups.
+● FIRST_VALUE() OVER: Get the first value in an ordered set of values.
+● LAST_VALUE() OVER: Get the last value in an ordered set of values.
+Window functions allow for calculations across a set of rows related to the current row, without collapsing data into groups.
+
+
+
+12. Aggregate Functions as Window Functions
+● SUM() OVER: Calculate the sum of values across a window of rows.
+● MAX() OVER: Find the maximum value across a window of rows.
+● MIN() OVER: Find the minimum value across a window of rows.
+● COUNT() OVER: Count the number of rows across a window.
+● AVG() OVER: Calculate the average value across a window.
+By using the OVER() clause, aggregate functions become window functions, allowing for aggregate calculations over a defined set of rows (the window) without collapsing the data like a traditional GROUP BY would.13. SQL Date and Time Functions
+● Functions to manipulate date and time values (e.g., NOW(), CURRENT_DATE, DATEADD(), DATEDIFF(), etc.).
+These functions allow for the manipulation and comparison of date and time values in queries.
