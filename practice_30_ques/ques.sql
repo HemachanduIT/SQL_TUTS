@@ -26,3 +26,52 @@ where publish_date>'1940-01-01' and categoty='C102';
 --7)
 select cate_id,cate_name from categories
 where cate_name like 'M%';
+--8)
+select td.train_id,td.train_name from train_details_tbl as td
+join station_tbl as sd on td.train_to=sd.station_id
+where td.train_name like 'M%' and sd.station_name='Pune';
+--9)
+select empid,leave_type,total_leaves from emp_leave_info
+where total_leaves>10 and leave_type='CLI' OR leave_type='ML';
+--10)
+select e.empid,e.empname,d.dname,s.basic from emp_info e
+join dept_info d on e.deptid=d.deptid
+join salary_info s on e.emp_cate=s.emp_cate
+where d.dname='HR';
+---11)
+select e.empid,e.empname,d.dname,s.house_rent from emp_info e
+join dept_info d on e.deptid=d.deptid
+join salary_info s on e.emp_cate=s.emp_cate
+where d.location in('BANGLORE','COCHIN');
+--12)
+select acc_type_id,avg(balance) as Avg_balance from account
+group by acc_type_id
+having avg(balance)>=50000;
+--13)
+select c.first_name.c.last_name,a.account_id from customer c
+join account a on c.customer_id=a.customer_id
+where a.balance>=50000
+order by c.first_name;
+--14)
+select first_name as staff_First_name,position,salary from staff
+where salary > 50000;
+--15)
+select concat(p.first_name,p.last_name) as PatientName ,p.email as PatientEmail ,p.admissiondate as AdmissionDate b.totalmount
+from patient p
+join billing b on p.patientid=b.patientid
+b.paymentstatus='UNpaid'
+order by b.totalamount desc;
+--16)
+select f.flightid,f.departure_time,f.departure_date from flight f
+join airplane a on f.airplaneid=a.airplaneid
+join airline al on a.airlineid=al.airlineid
+where al.name='Singapore Airlines';
+--17)
+select airplane_id,model_number from airplane
+where manufacturer='Airbus';
+--18)
+select s.last_name from students s
+join register r on s.studentid=r.studentid
+where r.register_year like '2012%' or
+where extract(year from r.register_year)=2012;
+--19)
