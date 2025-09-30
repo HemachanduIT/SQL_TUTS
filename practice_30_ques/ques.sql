@@ -109,3 +109,23 @@ aname like '%2%';
 
 select artist_id,aname from artist
 where aname regeexp '[0-9]';
+--26)
+select messageid,content from messages
+where content like '%hello%';
+--27)
+select concat(d.firstname,d.lastname) as full_name ,d.licenseno,v.plate_no from drivers d
+join vehicle v on d.driverid=v.driverid
+where v.status='in use' and v.noplate like '%0';
+--28)
+select d.licenseno,v.vehicleid,v.rating,b.booking_id from driver d
+join vehicle v on d.driverid=v.driverid
+join booking b on v.vehicleid=b.vehicleid
+where v.rating>=4.5 and b.status<>'cancelled';
+--29)
+select viewername,count(*) as name_count from viewers
+group by viewername;
+--30)
+select concat(u.firstname,u.lastname) as full_name from users u
+join jobs j on u.userid=j.userid
+join contacts c on u.userid=c.userid
+where j.title like '%engineer%';
