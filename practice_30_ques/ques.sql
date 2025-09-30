@@ -75,3 +75,37 @@ join register r on s.studentid=r.studentid
 where r.register_year like '2012%' or
 where extract(year from r.register_year)=2012;
 --19)
+select * from cabincrew c 
+join flight f on c.flightid=f.flightid
+where c.firstname like 'A%' and f.flightid like '%1';
+--20)
+select f.flightid,count(b.passengerid) as Total_passengers,sum(b.baggage) as Total_baggage from flight f
+join baggage b on f.flightid=b.flightid
+where f.flightto='Paris' and f.arrival_date='2024-02-11'
+group by f.flightid;
+--21)
+select count(*) as product_count from product p
+join product_cate pc on p.productid=pc.productid
+join categoty c on pc.categoryid=c.categoryid
+where c.name='Women';   
+--22)
+select train_name,train_type from train_details_tbl 
+where train_speed < 50;
+--23)
+select p.firstname,p.contact from passenger p
+join boarding b on p.passid=b.passid
+join flight f on b.flightid=f.flightid
+where f.flightfrom='Hong kong' and f.flightid=4 and b.meal='veg';
+--24)
+select p.productid,p.productname from product p
+join orderitem o on p.productid=o.productid
+join orderdelivery od on o.ord_deliveryid=od.ord_deliveryid
+where od.status='in the transition hub';
+--25)
+select artist_id,aname from artist
+where aname like '%0%' or
+aname like '%1%' or
+aname like '%2%';
+
+select artist_id,aname from artist
+where aname regeexp '[0-9]';
